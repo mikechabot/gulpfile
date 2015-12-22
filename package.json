@@ -1,0 +1,28 @@
+{
+  "name": "angular-xg",
+  "version": "1.0.0",
+  "description": "dropdown component",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "connect-livereload": "^0.5.4",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^2.0.0",
+    "jshint": "^2.8.0",
+    "jspm": "^0.16.19",
+    "tiny-lr": "^0.2.1"
+  },
+  "jspm": {
+    "dependencies": {
+      "foundation": "github:zurb/bower-foundation@^5.5.3"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  }
+}
