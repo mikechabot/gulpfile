@@ -1,5 +1,5 @@
 function greeter(person) {
     return "Hello, " + person;
 }
-var user = "Jane User";
+var user = "John Smith";
 alert(greeter(user));

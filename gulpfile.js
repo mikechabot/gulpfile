@@ -17,22 +17,26 @@ gulp.task('watch', function() {
   gulp.watch('css/*.css', notifyLiveReload);
 });
 
-// gulp.task('typescript', function() {
-  
-  
-// });
-
 var tinylr;
 gulp.task('livereload', function() {
     tinylr = liveReload();
     tinylr.listen(35729);
 });
 
-function notifyLiveReload(event) {
-  console.log(event);
+function isTypeScript(path) {
+  return path.indexOf('.ts') !== -1;
+}
 
-  gulp.src(['app/*.ts']).pipe(typescript()).js.pipe(gulp.dest('app'))
-  console.log('Compiling typescript');
+function compileTypeScript() {
+  console.log('Compiling TypeScript');
+  gulp.src(['app/*.ts']).pipe(typescript()).js.pipe(gulp.dest('app'))  
+}
+
+function notifyLiveReload(event) {
+
+  if (isTypeScript(event.path)) {
+    compileTypeScript();
+  }
 
   var fileName = require('path').relative(__dirname, event.path);
   tinylr.changed({
